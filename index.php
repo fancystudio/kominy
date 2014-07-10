@@ -63,9 +63,16 @@
 			cena s dph: <span class="cenaDPHClass">0</span> € <br>
 		</div>
 		<div class="vyratajClassDiv">Vyrataj</div> 
+		<br>
+		<br>
+		<form>
+			meno: <input type="text" class="meno" /><span class="nameInputValidation" style="display:none">Meno nesmie ostať nevyplnené</span><br>
+			email: <input type="text" class="email" /><br>
+			telefon: <input type="text" class="telefon" /><span class="emailOrPhoneInputValidation" style="display:none">Email alebo telefón musia byť vyplnené správne</span><br>
+			adresa: <input type="text" class="adresa" /><span class="addressInputValidation" style="display:none">Adresa nesmie ostať nevyplnená</span>
+			<span class="priceInputValidation" style="display:none">Musí byť vyrátaná cena</span>
+			<input type="button" class="odosli" value="odosli"/>
+		</form>
 	</body>
 
 </html>
-<?php
-
-?>

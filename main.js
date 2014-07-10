@@ -7,6 +7,7 @@ var sopuch;
 var vetSachta;
 var ecoValues;
 var ecoPlusValues;
+var totalPrice;
 $(document).ready(function(){
 	init();
 	$(".vyratajClassDiv").click(function(){
@@ -14,15 +15,32 @@ $(document).ready(function(){
 	});
 	$(".typClass").change(function(){
 		showInterface();
+		removePrice();
 	});
 	$(".vetSachtaClass").change(function(){
 		showRozmery(typ, $('input[name=vetSachta]:checked').val());
+	});
+	$(".meno").change(function(){
+		isMenoValid($(".meno").val());
+	});
+	$(".adresa").change(function(){
+		isAdresaValid($(".adresa").val());
+	});
+	$(".odosli").click(function(){
+		if(isMenoValid($(".meno").val()) 
+			&& isAdresaValid($(".adresa").val())
+			&& isEmailOrPhoneValid($(".email").val(),$(".telefon").val())
+			&& isPriceCount()
+		){
+			sendMail($(".meno").val(),$(".adresa").val(),$(".email").val(),$(".telefon").val());
+		}
 	});
 });
 function init(){
 	loadValues();
 	loadPrices();
 	showInterface();
+	removePrice();
 }
 function showInterface(){
 	typ = $(".typClass").val();
@@ -70,20 +88,26 @@ function showEmailPrice(){
 }
 function vyratajInterface(){
 	loadValues();
-	if(typ == "eco"){
-		vyratajECO();
-	}else if(typ == "ecoplus"){
-		vyratajECOPLUS();
-	}
+	if(typ == "eco"){ vyratajECO(); }
+	else if(typ == "ecoplus"){ vyratajECOPLUS(); }
+	priceIsCount = true;
 }
 function vyratajECO(){
-	$(".cenaClass").html(ecoValues[vetSachta][sopuch][rozmer][vyska]);
-	$(".cenaDPHClass").html(Math.round((ecoValues[vetSachta][sopuch][rozmer][vyska] * 1.2) * 100)/100);
-	console.log(ecoValues[vetSachta][sopuch][rozmer][vyska]);
-	//horne kominove dvierka
+	totalPrice = parseInt(ecoValues[vetSachta][sopuch][rozmer][vyska].replace(/,/g, '.'));
+	if(komDvere){ 
+		totalPrice += parseInt(ecoValues["komDvere"]); 
+	}
+	setPrice(totalPrice);
 }
 function vyratajECOPLUS(){
-	
+	totalPrice = parseInt(ecoPlusValues[vetSachta][sopuch][rozmer][vyska].replace(/,/g, '.'));
+	if(kanVyustenie){ 
+		totalPrice += parseInt(ecoPlusValues["kanVyustenie"][rozmer].replace(/,/g, '.')); 
+	}
+	if(komDvere){ 
+		totalPrice += parseInt(ecoPlusValues["komDvere"].replace(/,/g, '.')); 
+	}
+	setPrice(totalPrice);
 }
 function vyratajCenuSDPH(){
 	
@@ -106,6 +130,16 @@ function showRozmery(typ, vetSachta){
 		});
 	}
 }
+function removePrice(){
+	totalPrice = 0;
+	$(".cenaClass").html(0);
+	$(".cenaDPHClass").html(0);
+}
+function setPrice(totalPrice){
+	totalPrice = totalPrice;
+	$(".cenaClass").html(Math.round(totalPrice * 100)/100);
+	$(".cenaDPHClass").html(Math.round((totalPrice * 1.2) * 100)/100);
+}
 function loadValues(){
 	sopuch = $('input[name=sopuch]:checked').val();
 	vetSachta = $('input[name=vetSachta]:checked').val();
@@ -115,285 +149,108 @@ function loadValues(){
 	komDvere = $(".komDvereClass").is(":checked");
 	kanVyustenie = $(".kanVyustenieClass").is(":checked");
 }
+function isValidEmailAddress(emailAddress) {
+    var pattern = new RegExp(/^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))@((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?$/i);
+    return pattern.test(emailAddress);
+}
+function isNumber(value) {
+	if ((undefined === value) || (null === value)) {
+        return false;
+    }
+    if (typeof value == 'number') {
+        return true;
+    }
+    return !isNaN(value - 0);
+}
+function isEmailOrPhoneValid(email,phone){
+	if(email == "" && phone == ""){
+		$(".emailOrPhoneInputValidation").show();
+		return false;
+	}else{
+		if(email != "" && !isValidEmailAddress(email)){
+			$(".emailOrPhoneInputValidation").show();
+			return false;
+		}
+		if(phone != "" && !isNumber(phone)){
+			$(".emailOrPhoneInputValidation").show();
+			return false;
+		}
+		$(".emailOrPhoneInputValidation").hide();
+		return true;
+	}
+}
+function isMenoValid(meno){
+	if(meno == ""){
+		$(".nameInputValidation").show();
+		return false;
+	}else{
+		$(".nameInputValidation").hide();
+		return true;
+	}
+}
+function isAdresaValid(adresa){
+	if(adresa == ""){
+		$(".addressInputValidation").show();
+		return false;
+	}else{
+		$(".addressInputValidation").hide();
+		return true;
+	}
+}
+function isPriceCount(){
+	if(totalPrice != 0){
+		$(".priceInputValidation").hide();
+		return true;
+	}else{
+		$(".priceInputValidation").show();
+		return false;
+	}
+}
+function sendMail(meno, adresa, email, telefon){
+	$.ajax({
+		type: "POST",
+		url: "sendMail.php",
+		data: {
+			"meno" : meno,
+			"adresa" : adresa,
+			"email" : email,
+			"telefon" : telefon,
+			"sopuch" : sopuch,
+			"vetSachta" : vetSachta,
+			"rozmer" : rozmer,
+			"vyska" : vyska,
+			"typ" : typ,
+			"komDvere" : komDvere,
+			"kanVyustenie" : kanVyustenie
+		},
+		success: function(response)
+		{
+			if(response.status == 'success'){
+				
+			}else{
+				alert("Chyba pri odoslaní emailu");
+			}	
+		},
+		error: function(response){
+			alert("Chyba pri odoslaní emailu");
+		}
+	});
+}
 function loadPrices(){
-	ecoValues = 
-	{
-	"s":{
-		"45":{	
-			"16":{	
-				"3" : 3,
-				"4" : 4,
-				"5" : 5,
-				"6" : 6,
-				"7" : 7,
-				"8" : 8,
-				"9" : 9,
-				"10" : 10
-				},
-			"18":{	
-				"3" : 3,
-				"4" : 4,
-				"5" : 5,
-				"6" : 6,
-				"7" : 7,
-				"8" : 8,
-				"9" : 9,
-				"10" : 10
-				},
-			"20":{	
-				"3" : 3,
-				"4" : 4,
-				"5" : 5,
-				"6" : 6,
-				"7" : 7,
-				"8" : 8,
-				"9" : 9,
-				"10" : 10
-				},
-			"22":{	
-				"3" : 3,
-				"4" : 4,
-				"5" : 5,
-				"6" : 6,
-				"7" : 7,
-				"8" : 8,
-				"9" : 9,
-				"10" : 10
-				}
-			},
-		"90":{	
-			"16":{	
-				"3" : 3,
-				"4" : 4,
-				"5" : 5,
-				"6" : 6,
-				"7" : 7,
-				"8" : 8,
-				"9" : 9,
-				"10" : 10
-				},
-			"18":{	
-				"3" : 3,
-				"4" : 4,
-				"5" : 5,
-				"6" : 6,
-				"7" : 7,
-				"8" : 8,
-				"9" : 9,
-				"10" : 10
-				},
-			"20":{	
-				"3" : 3,
-				"4" : 4,
-				"5" : 5,
-				"6" : 6,
-				"7" : 7,
-				"8" : 8,
-				"9" : 9,
-				"10" : 10
-				}
-			}
+	$.ajax({
+		type: "POST",
+		url: "loadValues.php",
+		success: function(response)
+		{
+			if(response.status == 'success'){
+				ecoValues = response['eco'];
+				ecoPlusValues = response['ecoplus'];
+			}else{
+				alert("Chyba pri načítaní cien");
+			}	
 		},
-	"bez":{
-		"45":{	
-			"16":{	
-				"3" : 3,
-				"4" : 4,
-				"5" : 5,
-				"6" : 6,
-				"7" : 7,
-				"8" : 8,
-				"9" : 9,
-				"10" : 10
-				},
-			"18":{	
-				"3" : 3,
-				"4" : 4,
-				"5" : 5,
-				"6" : 6,
-				"7" : 7,
-				"8" : 8,
-				"9" : 9,
-				"10" : 10
-				},
-			"20":{	
-				"3" : 3,
-				"4" : 4,
-				"5" : 5,
-				"6" : 6,
-				"7" : 7,
-				"8" : 8,
-				"9" : 9,
-				"10" : 10
-				}
-			},
-		"90":{	
-			"16":{	
-				"3" : 3,
-				"4" : 4,
-				"5" : 5,
-				"6" : 6,
-				"7" : 7,
-				"8" : 8,
-				"9" : 9,
-				"10" : 10
-				},
-			"18":{	
-				"3" : 3,
-				"4" : 4,
-				"5" : 5,
-				"6" : 6,
-				"7" : 7,
-				"8" : 8,
-				"9" : 9,
-				"10" : 10
-				},
-			"20":{	
-				"3" : 3,
-				"4" : 4,
-				"5" : 5,
-				"6" : 6,
-				"7" : 7,
-				"8" : 8,
-				"9" : 9,
-				"10" : 10
-				}
-			}
+		error: function(response){
+			alert("Chyba pri načítaní cien");
 		}
-	}
-	ecoPlusValues = 
-	{
-	"s":{
-		"45":{	
-			"16":{	
-				"3" : 3,
-				"4" : 4,
-				"5" : 5,
-				"6" : 6,
-				"7" : 7,
-				"8" : 8,
-				"9" : 9,
-				"10" : 10
-				},
-			"18":{	
-				"3" : 3,
-				"4" : 4,
-				"5" : 5,
-				"6" : 6,
-				"7" : 7,
-				"8" : 8,
-				"9" : 9,
-				"10" : 10
-				},
-			"20":{	
-				"3" : 3,
-				"4" : 4,
-				"5" : 5,
-				"6" : 6,
-				"7" : 7,
-				"8" : 8,
-				"9" : 9,
-				"10" : 10
-				}
-			},
-		"90":{	
-			"16":{	
-				"3" : 3,
-				"4" : 4,
-				"5" : 5,
-				"6" : 6,
-				"7" : 7,
-				"8" : 8,
-				"9" : 9,
-				"10" : 10
-				},
-			"18":{	
-				"3" : 3,
-				"4" : 4,
-				"5" : 5,
-				"6" : 6,
-				"7" : 7,
-				"8" : 8,
-				"9" : 9,
-				"10" : 10
-				},
-			"20":{	
-				"3" : 3,
-				"4" : 4,
-				"5" : 5,
-				"6" : 6,
-				"7" : 7,
-				"8" : 8,
-				"9" : 9,
-				"10" : 10
-				}
-			}
-		},
-	"bez":{
-		"45":{	
-			"16":{	
-				"3" : 3,
-				"4" : 4,
-				"5" : 5,
-				"6" : 6,
-				"7" : 7,
-				"8" : 8,
-				"9" : 9,
-				"10" : 10
-				},
-			"18":{	
-				"3" : 3,
-				"4" : 4,
-				"5" : 5,
-				"6" : 6,
-				"7" : 7,
-				"8" : 8,
-				"9" : 9,
-				"10" : 10
-				},
-			"20":{	
-				"3" : 3,
-				"4" : 4,
-				"5" : 5,
-				"6" : 6,
-				"7" : 7,
-				"8" : 8,
-				"9" : 9,
-				"10" : 10
-				}
-			},
-		"90":{	
-			"16":{	
-				"3" : 3,
-				"4" : 4,
-				"5" : 5,
-				"6" : 6,
-				"7" : 7,
-				"8" : 8,
-				"9" : 9,
-				"10" : 10
-				},
-			"18":{	
-				"3" : 3,
-				"4" : 4,
-				"5" : 5,
-				"6" : 6,
-				"7" : 7,
-				"8" : 8,
-				"9" : 9,
-				"10" : 10
-				},
-			"20":{	
-				"3" : 3,
-				"4" : 4,
-				"5" : 5,
-				"6" : 6,
-				"7" : 7,
-				"8" : 8,
-				"9" : 9,
-				"10" : 10
-				}
-			}
-		}
-	}
+	});
 }
