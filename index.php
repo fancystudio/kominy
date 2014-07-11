@@ -41,7 +41,7 @@
   </div>
 </div>
 
-<div class="container">
+<!--<div class="container">
   
   <div class="text-center">
     <h1>Komíny</h1>
@@ -50,8 +50,12 @@
   
 </div><!-- /.container -->
     
-<div class="container">    
-		<select class="rozmerClassTemplate form-control" style="display:none">
+<div class="container">
+	<div class="col-md-5">
+	<h2>Cenová kalkulácia</h2>
+	<div class="row">
+	    
+		<select class="rozmerClassTemplate form-control col-md-6" style="display:none">
 			<option class="ecoplusBez ecoplusS" value="14">14</option>
 		  	<option class="ecoplusBez eco ecoplusS" value="16">16</option>
 		  	<option class="ecoplusBez eco ecoplusS" value="18">18</option>
@@ -60,12 +64,12 @@
 		  	<option class="ecoplusBez" value="25">25</option>
 		  	<option class="ecoplusBez" value="30">30</option>
 		</select>
-		<div class="rozmerClassDiv">
+		<div class="rozmerClassDiv col-md-6">
 			rozmer: <select class="rozmerClass form-control">
 			</select>
 		</div>	
-		<br>
-		<div class="vyskaClassDiv">
+		
+		<div class="vyskaClassDiv col-md-6">
 			vyska: <select class="vyskaClass form-control">
 			  <option value="3">3</option>
 			  <option value="4">4</option>
@@ -76,16 +80,19 @@
 			  <option value="9">9</option>
 			  <option value="10">10</option>
 			</select>
-		</div><br>
-		<div class="typClassDiv">
+		</div>
+		<!-- row-->
+		
+		
+		<div class="typClassDiv col-md-12">
 			typ: <select class="typClass form-control">
 				<option value="eco">ECO</option>
 			  	<option value="ecoplus">ECOPlus</option>
-			  	<option value="ostatne">ostatne</option>
+			  	<option value="ostatne">ostatne (cena na dopyt)</option>
 			</select>
 		</div>
-		<br>
-		<div class="vetSachtaClassDiv">
+		
+		<div class="vetSachtaClassDiv col-md-6">
 		 	<div class="radio"><label>
 		 	<input class="vetSachtaClass" checked="checked" type="radio" name="vetSachta" value="bez">
 		 	Bez vetracej sachty
@@ -98,7 +105,7 @@
 		
 		</div>
 		<br><br>
-		<div class="sopuchClassDiv">
+		<div class="sopuchClassDiv col-md-6">
 		<div class="radio"><label>
 			<input class="sopuchClass" checked="checked" type="radio" name="sopuch" value="45">
 			SOPÚCH 45°
@@ -109,9 +116,9 @@
 		</label></div>
 		</div>
 		<br><br>
-		<div class="komDvereClassDiv">
-			
-			
+		
+		
+		<div class="komDvereClassDiv col-md-12">	
 		<div class="checkbox"> <label>	
 			<input class="komDvereClass" type="checkbox"/>horne kominove dvere
 		</label></div>
@@ -119,30 +126,50 @@
 		
 		</div>
 		<br>
-		<div class="kanVyustenieClassDiv">
+		<div class="kanVyustenieClassDiv col-md-12">
 			
 			<div class="checkbox"> <label>
 			<input class="kanVyustenieClass" type="checkbox"/>srieska na konicke vyustenie: 
 			</label></div>
 			
 		</div>
-		<div class="cenaClassDiv">
+		<div class="cenaClassDiv col-md-12">
 			cena bez dph: <span class="cenaClass">0</span> €<br>
 			cena s dph: <span class="cenaDPHClass">0</span> € <br>
+		
 		</div>
-		<button type="submit" class="vyratajClassDiv btn btn-default">Vyrataj</button> 
-		<br>
-		<br>
+		<div class="col-md-12">
+		<button type="submit" class="vyratajClassDiv btn btn-default col-md-12">Vyrataj</button> 
+		</div>
+		
+		<div class="col-md-12">
 		<form>
-			meno: <input type="text" class="meno" /><span class="nameInputValidation" style="display:none">Meno nesmie ostať nevyplnené</span><br>
-			email: <input type="text" class="email" /><br>
-			telefon: <input type="text" class="telefon" /><span class="emailOrPhoneInputValidation" style="display:none">Email alebo telefón musia byť vyplnené správne</span><br>
-			adresa: <input type="text" class="adresa" /><span class="addressInputValidation" style="display:none">Adresa nesmie ostať nevyplnená</span>
+			meno: <input type="text" class="meno form-control" /><span class="nameInputValidation" style="display:none">Meno nesmie ostať nevyplnené</span><br>
+			email: <input type="text" class="email form-control" /><br>
+			telefon: <input type="text" class="telefon form-control" /><span class="emailOrPhoneInputValidation" style="display:none">Email alebo telefón musia byť vyplnené správne</span><br>
+			adresa: <input type="text" class="adresa form-control" /><span class="addressInputValidation" style="display:none">Adresa nesmie ostať nevyplnená</span>
 			<span class="priceInputValidation" style="display:none">Musí byť vyrátaná cena</span>
-			<input type="button" class="odosli" value="odosli"/>
+			<button type="button" class="odosli btn btn-default col-md-12" value="odosli"/>Odošli</button>
 		</form>
-	    </container><!-- end container-->
+		</div>
+		</div>
+		</div>
+	
+
+<div class="col-md-7">
+<h2>Komínové systémy</h2>
+<?php
+include('includes/kominy.php')
+?>	
+</div>	
+		
+	    </div><!-- end container-->
 	    
+<footer>
+<div class="container">
+paticka
+</div>
+</footer>
 	    
 	    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.0.min.js"><\/script>')</script>
