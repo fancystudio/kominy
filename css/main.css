@@ -1,10 +1,21 @@
 
 
 /* ==========================================================================
-   Author's custom styles
+   fancy|studio
    ========================================================================== */
 
+.navbar-brand{
+	height: auto
+}
 
+.navbar-nav>li>a {
+padding-top: 22px;
+padding-bottom: 22px;
+}
+
+.leier a {
+padding: 15px 0px 0px 0px !important;
+}
 
 
 

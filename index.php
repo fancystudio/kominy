@@ -27,7 +27,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">conparius</a>
+      <a class="navbar-brand" href="#"><img src="img/logo.png" width="199" height="34"/></a>
     </div>
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
@@ -35,7 +35,7 @@
         <li><a href="#contact">Kontakt</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#about">Leier</a></li>
+        <li class="leier"><a href="#"><img src="img/leier-logo.png" width="129" height="32"/></a></li>
       </ul>
     </div><!--/.nav-collapse -->
   </div>
