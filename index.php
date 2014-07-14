@@ -161,7 +161,7 @@
 			* povinné polia<br>
 			** aspoň 1 pole musíte vyplniť<br>
 			</span>
-			<div class="alert alert-success" role="alert">Váš dopyt bol úspešne odoslaný</div>
+			<div class="alert alert-success" style="display:none" role="alert">Váš dopyt bol úspešne odoslaný</div>
 			<button type="button" class="odosli btn btn-primary col-md-12 col-xs-12" value="odosli"/>Odošli dopyt</button>
 		</form>
 		</div>

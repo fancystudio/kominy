@@ -9,6 +9,7 @@ var poziadavky;
 var ecoValues;
 var ecoPlusValues;
 var totalPrice;
+var mailSend = false;
 $(document).ready(function(){
 	init();
 	$(".vyratajClassDiv").click(function(){
@@ -28,17 +29,19 @@ $(document).ready(function(){
 		isAdresaValid($(".adresa").val());
 	});
 	$(".odosli").click(function(){
-		menoValid = isMenoValid($(".meno").val());
-		adresaValid = isAdresaValid($(".adresa").val());
-		emailOrPhoneValid = isEmailOrPhoneValid($(".email").val(),$(".telefon").val());
-		if(typ == "eco" || typ == "ecoplus"){
-			priceIsCount = isPriceCount();
-		}else{
-			priceIsCount = true;
-			$(".priceInputValidation").hide();
-		}
-		if(menoValid && adresaValid && emailOrPhoneValid && priceIsCount){
-			sendMail($(".meno").val(),$(".adresa").val(),$(".email").val(),$(".telefon").val(),$(".poziadavky").val());
+		if(!mailSend){
+			menoValid = isMenoValid($(".meno").val());
+			adresaValid = isAdresaValid($(".adresa").val());
+			emailOrPhoneValid = isEmailOrPhoneValid($(".email").val(),$(".telefon").val());
+			if(typ == "eco" || typ == "ecoplus"){
+				priceIsCount = isPriceCount();
+			}else{
+				priceIsCount = true;
+				$(".priceInputValidation").hide();
+			}
+			if(menoValid && adresaValid && emailOrPhoneValid && priceIsCount){
+				sendMail($(".meno").val(),$(".adresa").val(),$(".email").val(),$(".telefon").val(),$(".poziadavky").val());
+			}
 		}
 	});
 });
@@ -143,6 +146,8 @@ function removePrice(){
 	totalPrice = 0;
 	$(".cenaClass").html(0);
 	$(".cenaDPHClass").html(0);
+	$(".alert-success").hide();
+	mailSend = false;
 }
 function setPrice(totalPrice){
 	totalPrice = totalPrice;
@@ -236,7 +241,8 @@ function sendMail(meno, adresa, email, telefon, poziadavky){
 		success: function(response)
 		{
 			if(response.status == 'success'){
-				
+				$(".alert-success").show();
+				mailSend = true;
 			}else{
 				alert("Chyba pri odoslaní emailu");
 			}	
