@@ -145,12 +145,16 @@
 		</div>
 		</div>
 		<div class="col-md-12">
+<<<<<<< HEAD
 		<button type="submit" class="vyratajClassDiv btn btn-primary col-md-12 col-xs-12">Vyrataj</button> 
+=======
+		<button type="submit" class="vyratajClassDiv btn btn-primary col-md-12 col-xs-12">Vyrátaj</button> 
+>>>>>>> FETCH_HEAD
 		</div>
 		
 		<div class="col-md-12">
 		<form>
-			<div class="poziadavkyClass">požiadavky k zvolenému komínu:<textarea class="poziadavky form-control"></textarea></div>
+			<div class="poziadavkyClass">požiadavky k zvolenému komínu:<textarea class="poziadavky form-control"></textarea><br></div>
 			meno: *<input type="text" class="meno form-control" /><span class="nameInputValidation" style="display:none"><p class="bg-danger">Meno nesmie ostať nevyplnené</p></span><br>
 			email: **<input type="text" class="email form-control" /><br>
 			telefón: **<input type="text" class="telefon form-control" /><span class="emailOrPhoneInputValidation" style="display:none"><p class="bg-danger">Email alebo telefón musia byť vyplnené správne</p></span><br>
@@ -161,6 +165,7 @@
 			* povinné polia<br>
 			** aspoň 1 pole musíte vyplniť<br>
 			</span>
+			<div class="alert alert-success" role="alert">Váš dopyt bol úspešne odoslaný</div>
 			<button type="button" class="odosli btn btn-primary col-md-12 col-xs-12" value="odosli"/>Odošli dopyt</button>
 		</form>
 		</div>
