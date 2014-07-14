@@ -33,7 +33,7 @@
         <li><a href="kontakt.php">Kontakt</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li class="leier"><a href="#"><img src="img/leier-logo.png" width="129" height="32"/></a></li>
+        <li class="leier"><a href="http://www.leier.sk/kemenyrendszerek-menu" target="_blank"><img src="img/leier-logo.png" width="129" height="32"/></a></li>
       </ul>
     </div><!--/.nav-collapse -->
   </div>

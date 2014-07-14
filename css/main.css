@@ -101,7 +101,20 @@ display: block;
 /* float: left; */
 }
 
+.contact_form{
+	padding: 15px;
+}
 
+.kontakny-formular {
+margin-top: 50px;
+}
+
+/* Landscape phones and portrait tablets */
+@media (max-width: 767px) {
+.leier {
+padding: 6px 18px;
+}
+}
 
 
 

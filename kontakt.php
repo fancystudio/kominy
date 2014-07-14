@@ -30,11 +30,11 @@
     </div>
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
-        <li ><a href="index.php">Domov</a></li>
+        <li><a href="index.php">Domov</a></li>
         <li class="active"><a href="kontakt.php">Kontakt</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li class="leier"><a href="#"><img src="img/leier-logo.png" width="129" height="32"/></a></li>
+        <li class="leier"><a href="http://www.leier.sk/kemenyrendszerek-menu" target="_blank"><img src="img/leier-logo.png" width="129" height="32"/></a></li>
       </ul>
     </div><!--/.nav-collapse -->
   </div>
@@ -93,7 +93,7 @@ if($_POST['name']){
 	mail('kontakt@conparius.sk', "komentar od zakaznika ".$_POST['name'], "text:\n ".$_POST['text']."\n \n"."zakaznikov email: ".$_POST['email'], "from: kontakt@conparius.sk"); 
 }
 ?>
-<div class="col-md-12"><h4 style="margin-bottom: 20px">Kontaktný formulár</h4></div>
+<div class="col-md-12 kontakny-formular"><h4 style="margin-bottom: 20px">Kontaktný formulár</h4></div>
 
 <form action="kontakt.php" method="POST">
 
