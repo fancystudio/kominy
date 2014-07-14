@@ -88,7 +88,7 @@
 <?php 
 if($_POST['name']){
 	?>	
-	<div class="email_send">Váš komentár bol odoslaný</div>
+	<div class="email_send alert alert-success">Váš komentár bol odoslaný</div>
 	<?php 
 	mail('kontakt@conparius.sk', "komentar od zakaznika ".$_POST['name'], "text:\n ".$_POST['text']."\n \n"."zakaznikov email: ".$_POST['email'], "from: kontakt@conparius.sk"); 
 }
