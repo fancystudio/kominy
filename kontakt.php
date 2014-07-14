@@ -105,7 +105,7 @@
 
 <div class="col-md-8"><label >Vaša správa</label>
 <textarea class="form_text form-control" name="text" placeholder="Vaša správa..."></textarea>
-<input class="form_button btn btn-primary col-md-2 pull-right" type="submit" value="odoslať" />
+<input class="form_button btn btn-primary col-md-2 pull-right col-xs-12" type="submit" value="odoslať" />
 </div>
 
 

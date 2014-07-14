@@ -144,7 +144,7 @@
 		</div>
 		</div>
 		<div class="col-md-12">
-		<button type="submit" class="vyratajClassDiv btn btn-primary col-md-12">Vyrataj</button> 
+		<button type="submit" class="vyratajClassDiv btn btn-primary col-md-12 col-xs-12">Vyrataj</button> 
 		
 		</div>
 		
@@ -156,7 +156,7 @@
 			adresa: <input type="text" class="adresa form-control" /><span class="addressInputValidation" style="display:none"><p class="bg-danger">Adresa nesmie ostať nevyplnená</p></span>
 			<span class="priceInputValidation" style="display:none"><p class="bg-danger">Musí byť vyrátaná cena</p></span>
 			<br>
-			<button type="button" class="odosli btn btn-primary col-md-12" value="odosli"/>Odošli dopyt</button>
+			<button type="button" class="odosli btn btn-primary col-md-12 col-xs-12" value="odosli"/>Odošli dopyt</button>
 		</form>
 		</div>
 		</div>
