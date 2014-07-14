@@ -12,7 +12,8 @@
 
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/main.css">
-
+		
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
         <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
     </head>
     <body>
@@ -61,9 +62,6 @@
 <p> </p> 
 </div>
 
-
-
-
 <div class="col-md-4">
 <p><strong>Matej Betka</strong></p>
 <p>+421 915 444 314</p>
@@ -83,17 +81,19 @@
 <p>stefan.svoboda@conparius.sk</p>
 </div>
 
-
-
 </div>
-<div class="contact_form">{if isset($smarty.post.name)}
-
-<div class="email_send">Váš komentár bol odoslaný</div>
-{php} mail('kontakt@conparius.sk', "komentar od zakaznika ".$_POST['name'], "text:\n ".$_POST['text']."\n \n"."zakaznikov email: ".$_POST['email'], "from: kontakt@conparius.sk"); {/php} {/if} 
+<div class="contact_form">
+<?php 
+if($_POST['name']){
+	?>	
+	<div class="email_send">Váš komentár bol odoslaný</div>
+	<?php 
+	mail('kontakt@conparius.sk', "komentar od zakaznika ".$_POST['name'], "text:\n ".$_POST['text']."\n \n"."zakaznikov email: ".$_POST['email'], "from: kontakt@conparius.sk"); 
+}
+?>
 <div class="col-md-12"><h4 style="margin-bottom: 20px">Kontaktný formulár</h4></div>
 
-
-<form action="{root_url}/kontakt.html" method="POST">
+<form action="kontakt.php" method="POST">
 
 <div class="col-md-4">
 
@@ -108,22 +108,19 @@
 <input class="form_button btn btn-primary col-md-2 pull-right" type="submit" value="odoslať" />
 </div>
 
-
 </form></div>
 
-
-
-
-
 <script type="text/javascript">// <![CDATA[
-$("form").submit(function() {
-   if (($(".form_name").val() != "") && ($(".form_email").val() != "") && ($(".form_text").val() != "") && (validateEmail($(".form_email").val())==true)){
-       return true;
-     }else{
-        alert("niektorý z povinných údajov ostal nevyplnený, alebo bol vyplnený nesprávne");
-        return false;
-   }
-   return false;
+$(document).ready(function(){                                          
+	$("form").submit(function() {
+	   if (($(".form_name").val() != "") && ($(".form_email").val() != "") && ($(".form_text").val() != "") && (validateEmail($(".form_email").val())==true)){
+	       return true;
+	     }else{
+	        alert("niektorý z povinných údajov ostal nevyplnený, alebo bol vyplnený nesprávne");
+	        return false;
+	   }
+	   return false;
+	});
 });
 function validateEmail(email) { 
    var reg = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
@@ -137,14 +134,9 @@ function validateEmail(email) {
 Copyright kominy.sk © 2014 All rights reserved.
 </div>
 </footer>
-	    
 	    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.0.min.js"><\/script>')</script>
-
         <script src="js/vendor/bootstrap.min.js"></script>
         <script src="js/main.js"></script>
-
-        
-        
     </body>
 </html>

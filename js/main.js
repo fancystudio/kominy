@@ -5,14 +5,12 @@ var komDvere;
 var kanVyustenie;
 var sopuch;
 var vetSachta;
+var poziadavky;
 var ecoValues;
 var ecoPlusValues;
 var totalPrice;
 $(document).ready(function(){
 	init();
-	//$(':checkbox').checkbox();
-	//$(':radio').radio();
-	//$("select").selectpicker({style: 'btn-hg btn-primary'});
 	$(".vyratajClassDiv").click(function(){
 		vyratajInterface();
 	});
@@ -30,12 +28,17 @@ $(document).ready(function(){
 		isAdresaValid($(".adresa").val());
 	});
 	$(".odosli").click(function(){
-		if(isMenoValid($(".meno").val()) 
-			&& isAdresaValid($(".adresa").val())
-			&& isEmailOrPhoneValid($(".email").val(),$(".telefon").val())
-			&& isPriceCount()
-		){
-			sendMail($(".meno").val(),$(".adresa").val(),$(".email").val(),$(".telefon").val());
+		menoValid = isMenoValid($(".meno").val());
+		adresaValid = isAdresaValid($(".adresa").val());
+		emailOrPhoneValid = isEmailOrPhoneValid($(".email").val(),$(".telefon").val());
+		if(typ == "eco" || typ == "ecoplus"){
+			priceIsCount = isPriceCount();
+		}else{
+			priceIsCount = true;
+			$(".priceInputValidation").hide();
+		}
+		if(menoValid && adresaValid && emailOrPhoneValid && priceIsCount){
+			sendMail($(".meno").val(),$(".adresa").val(),$(".email").val(),$(".telefon").val(),$(".poziadavky").val());
 		}
 	});
 });
@@ -57,6 +60,7 @@ function showInterface(){
 	showRozmery(typ,vetSachta);
 }
 function showECO(){
+	$(".poziadavkyClass").hide();
 	$(".rozmerClassDiv").show();
 	$(".vyskaClassDiv").show();
 	$(".typClassDiv").show();
@@ -68,6 +72,7 @@ function showECO(){
 	$(".vyratajClassDiv").show();
 }
 function showECOPLUS(){
+	$(".poziadavkyClass").hide();
 	$(".rozmerClassDiv").show();
 	$(".vyskaClassDiv").show();
 	$(".typClassDiv").show();
@@ -79,6 +84,7 @@ function showECOPLUS(){
 	$(".vyratajClassDiv").show();
 }
 function showEmailPrice(){
+	$(".poziadavkyClass").show();
 	$(".rozmerClassDiv").hide();
 	$(".vyskaClassDiv").hide();
 	$(".typClassDiv").show();
@@ -209,7 +215,7 @@ function isPriceCount(){
 		return false;
 	}
 }
-function sendMail(meno, adresa, email, telefon){
+function sendMail(meno, adresa, email, telefon, poziadavky){
 	$.ajax({
 		type: "POST",
 		url: "sendMail.php",
@@ -224,7 +230,8 @@ function sendMail(meno, adresa, email, telefon){
 			"vyska" : vyska,
 			"typ" : typ,
 			"komDvere" : komDvere,
-			"kanVyustenie" : kanVyustenie
+			"kanVyustenie" : kanVyustenie,
+			"poziadavky" : poziadavky
 		},
 		success: function(response)
 		{

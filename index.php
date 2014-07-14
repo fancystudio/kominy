@@ -27,7 +27,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.php"><img src="img/logo.png" width="199" height="34"/></a>
+      <a class="navbar-brand" href="http://www.conparius.sk/" target="_blank"><img src="img/logo.png" width="199" height="34"/></a>
     </div>
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
@@ -64,12 +64,12 @@
 		  	<option class="ecoplusBez" value="30">30</option>
 		</select>
 		<div class="rozmerClassDiv col-md-6">
-			rozmer: <select class="rozmerClass form-control">
+			priemer prieduchu (cm): <select class="rozmerClass form-control">
 			</select>
 		</div>	
 		
 		<div class="vyskaClassDiv col-md-6">
-			vyska: <select class="vyskaClass form-control">
+			výška (bm): <select class="vyskaClass form-control">
 			  <option value="3">3</option>
 			  <option value="4">4</option>
 			  <option value="5">5</option>
@@ -85,21 +85,24 @@
 		
 		<div class="typClassDiv col-md-12">
 			typ: <select class="typClass form-control">
-				<option value="eco">ECO</option>
-			  	<option value="ecoplus">ECOPlus</option>
-			  	<option value="ostatne">ostatne (cena na dopyt)</option>
+				<option value="eco">Eco</option>
+			  	<option value="ecoplus">Eco Plus</option>
+			  	<option value="multiceram">Multikeram</option>
+			  	<option value="multiceramLas">Multikeram LAS</option>
+			  	<option value="multiceramLasP1">Multikeram LAS P1</option>
+			  	<option value="turbo">Turbo komín</option>
 			</select>
 		</div>
 		
 		<div class="vetSachtaClassDiv col-md-6">
 		 	<div class="radio"><label>
 		 	<input class="vetSachtaClass" checked="checked" type="radio" name="vetSachta" value="bez" data-toggle="radio">
-		 	Bez vetracej sachty
+		 	Bez vetracej šachty
 			</label></div>
 			
 			<div class="radio"><label>
 			<input class="vetSachtaClass" type="radio" name="vetSachta" value="s" data-toggle="radio">
-			S vetracou sachtou
+			S vetracou šachtou
 			</label></div>
 		
 		</div>
@@ -119,7 +122,7 @@
 		
 		<div class="komDvereClassDiv col-md-12">	
 		<div class="checkbox"> <label>	
-			<input class="komDvereClass" type="checkbox" data-toggle="checkbox"/>horne kominove dvere
+			<input class="komDvereClass" type="checkbox" data-toggle="checkbox"/>horné komínové dvere
 		</label></div>
 		
 		
@@ -128,7 +131,7 @@
 		<div class="kanVyustenieClassDiv col-md-12">
 			
 			<div class="checkbox"> <label>
-			<input class="kanVyustenieClass" type="checkbox" data-toggle="checkbox"/>srieska na konicke vyustenie: 
+			<input class="kanVyustenieClass" type="checkbox" data-toggle="checkbox"/>srieška na konické vyústenie: 
 			</label></div>
 			
 		</div>
@@ -144,16 +147,17 @@
 		</div>
 		</div>
 		<div class="col-md-12">
-		<button type="submit" class="vyratajClassDiv btn btn-primary col-md-12">Vyrataj</button> 
+		<button type="submit" class="vyratajClassDiv btn btn-primary col-md-12">Vyrátaj</button> 
 		
 		</div>
 		
 		<div class="col-md-12">
 		<form>
-			meno: <input type="text" class="meno form-control" /><span class="nameInputValidation" style="display:none"><p class="bg-danger">Meno nesmie ostať nevyplnené</p></span><br>
+			<div class="poziadavkyClass">požiadavky k zvolenému komínu:<textarea class="poziadavky form-control"></textarea></div>
+			meno: *<input type="text" class="meno form-control" /><span class="nameInputValidation" style="display:none"><p class="bg-danger">Meno nesmie ostať nevyplnené</p></span><br>
 			email: <input type="text" class="email form-control" /><br>
-			telefon: <input type="text" class="telefon form-control" /><span class="emailOrPhoneInputValidation" style="display:none"><p class="bg-danger">Email alebo telefón musia byť vyplnené správne</p></span><br>
-			adresa: <input type="text" class="adresa form-control" /><span class="addressInputValidation" style="display:none"><p class="bg-danger">Adresa nesmie ostať nevyplnená</p></span>
+			telefón: <input type="text" class="telefon form-control" /><span class="emailOrPhoneInputValidation" style="display:none"><p class="bg-danger">Email alebo telefón musia byť vyplnené správne</p></span><br>
+			adresa: *<input type="text" class="adresa form-control" /><span class="addressInputValidation" style="display:none"><p class="bg-danger">Adresa nesmie ostať nevyplnená</p></span>
 			<span class="priceInputValidation" style="display:none"><p class="bg-danger">Musí byť vyrátaná cena</p></span>
 			<br>
 			<button type="button" class="odosli btn btn-primary col-md-12" value="odosli"/>Odošli dopyt</button>
