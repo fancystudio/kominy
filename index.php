@@ -6,14 +6,12 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title></title>
-        <meta name="description" content="">
+        <title>komínové systémy | conparius s.r.o.</title>
+        <meta name="description" content="Komínové systémy Leier spĺňajú požiadavky slovenských predpisov ohľadom komínovej techniky">
+         <meta name="keywords" content="Komínové systémy, kominy, kominove systemy, kominy leier, vyber komina, kominy s keramickymi vlozkami">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
         <link rel="stylesheet" href="css/bootstrap.min.css">
-        <!--<link rel="stylesheet" href="css/flat-ui.css">-->
         <link rel="stylesheet" href="css/main.css">
-
         <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
     </head>
     <body>
@@ -64,7 +62,7 @@
 		  	<option class="ecoplusBez" value="30">30</option>
 		</select>
 		<div class="rozmerClassDiv col-md-6">
-			priemer prieduchu (cm): <select class="rozmerClass form-control">
+			Ø prieduchu (cm): <select class="rozmerClass form-control">
 			</select>
 		</div>	
 		
@@ -122,7 +120,7 @@
 		
 		<div class="komDvereClassDiv col-md-12">	
 		<div class="checkbox"> <label>	
-			<input class="komDvereClass" type="checkbox" data-toggle="checkbox"/>horné komínové dvere
+			<input class="komDvereClass" type="checkbox" data-toggle="checkbox"/>Horné komínové dvere
 		</label></div>
 		
 		
@@ -147,18 +145,22 @@
 		</div>
 		</div>
 		<div class="col-md-12">
-		<button type="submit" class="vyratajClassDiv btn btn-primary col-md-12 col-xs-12">Vyrataj</button> 
+		<button type="submit" class="vyrátajClassDiv btn btn-primary col-md-12 col-xs-12">Vyrataj</button> 
 		</div>
 		
 		<div class="col-md-12">
 		<form>
 			<div class="poziadavkyClass">požiadavky k zvolenému komínu:<textarea class="poziadavky form-control"></textarea></div>
 			meno: *<input type="text" class="meno form-control" /><span class="nameInputValidation" style="display:none"><p class="bg-danger">Meno nesmie ostať nevyplnené</p></span><br>
-			email: <input type="text" class="email form-control" /><br>
-			telefón: <input type="text" class="telefon form-control" /><span class="emailOrPhoneInputValidation" style="display:none"><p class="bg-danger">Email alebo telefón musia byť vyplnené správne</p></span><br>
+			email: **<input type="text" class="email form-control" /><br>
+			telefón: **<input type="text" class="telefon form-control" /><span class="emailOrPhoneInputValidation" style="display:none"><p class="bg-danger">Email alebo telefón musia byť vyplnené správne</p></span><br>
 			adresa: *<input type="text" class="adresa form-control" /><span class="addressInputValidation" style="display:none"><p class="bg-danger">Adresa nesmie ostať nevyplnená</p></span>
 			<span class="priceInputValidation" style="display:none"><p class="bg-danger">Musí byť vyrátaná cena</p></span>
 			<br>
+			<span class="info-req">
+			* povinné polia<br>
+			** aspoň 1 pole musíte vyplniť<br>
+			</span>
 			<button type="button" class="odosli btn btn-primary col-md-12 col-xs-12" value="odosli"/>Odošli dopyt</button>
 		</form>
 		</div>

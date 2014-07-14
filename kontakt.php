@@ -6,13 +6,12 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title></title>
-        <meta name="description" content="">
+        <title>komínové systémy | conparius s.r.o.</title>
+        <meta name="description" content="Komínové systémy Leier spĺňajú požiadavky slovenských predpisov ohľadom komínovej techniky">
+         <meta name="keywords" content="Komínové systémy, kominy, kominove systemy, kominy leier, vyber komina, kominy s keramickymi vlozkami">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/main.css">
-		
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
         <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
     </head>
