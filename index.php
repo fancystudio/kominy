@@ -150,7 +150,7 @@
 		
 		<div class="col-md-12">
 		<form>
-			<div class="poziadavkyClass">požiadavky k zvolenému komínu:<textarea class="poziadavky form-control"></textarea></div>
+			<div class="poziadavkyClass">požiadavky k zvolenému komínu:<textarea class="poziadavky form-control"></textarea><br></div>
 			meno: *<input type="text" class="meno form-control" /><span class="nameInputValidation" style="display:none"><p class="bg-danger">Meno nesmie ostať nevyplnené</p></span><br>
 			email: **<input type="text" class="email form-control" /><br>
 			telefón: **<input type="text" class="telefon form-control" /><span class="emailOrPhoneInputValidation" style="display:none"><p class="bg-danger">Email alebo telefón musia byť vyplnené správne</p></span><br>

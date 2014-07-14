@@ -58,6 +58,9 @@
 <p>Nám. Š. Moysesa 17/A</p>
 <p>974 01 Banská Bystrica</p>
 <p>IČO: 46726721</p>
+<p>DIČ: 
+	
+</p>
 <p> </p> 
 </div>
 
