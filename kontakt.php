@@ -26,7 +26,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.php"><img src="img/logo.png" width="199" height="34"/></a>
+      <a class="navbar-brand" href="http://www.conparius.sk/" target="_blank"><img src="img/logo.png" width="199" height="34"/></a>
     </div>
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
