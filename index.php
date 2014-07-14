@@ -11,7 +11,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="stylesheet" href="css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+        <!--<link rel="stylesheet" href="css/flat-ui.css">-->
         <link rel="stylesheet" href="css/main.css">
 
         <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
@@ -31,8 +31,8 @@
     </div>
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Domov</a></li>
-        <li><a href="#contact">Kontakt</a></li>
+        <li class="active"><a href="index.php">Domov</a></li>
+        <li><a href="kontakt.php">Kontakt</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li class="leier"><a href="#"><img src="img/leier-logo.png" width="129" height="32"/></a></li>
@@ -49,8 +49,12 @@
   </div>
   
 </div><!-- /.container -->
-    
-<div class="container">
+<div class="container baner">
+<div class="col-md-12"><img src="img/baner.jpg"/></div>
+</div>
+
+   
+<div class="container main-content">
 	<div class="col-md-5">
 	<h2>Cenová kalkulácia</h2>
 	<div class="row">
@@ -94,12 +98,12 @@
 		
 		<div class="vetSachtaClassDiv col-md-6">
 		 	<div class="radio"><label>
-		 	<input class="vetSachtaClass" checked="checked" type="radio" name="vetSachta" value="bez">
+		 	<input class="vetSachtaClass" checked="checked" type="radio" name="vetSachta" value="bez" data-toggle="radio">
 		 	Bez vetracej sachty
 			</label></div>
 			
 			<div class="radio"><label>
-			<input class="vetSachtaClass" type="radio" name="vetSachta" value="s">
+			<input class="vetSachtaClass" type="radio" name="vetSachta" value="s" data-toggle="radio">
 			S vetracou sachtou
 			</label></div>
 		
@@ -107,11 +111,11 @@
 		<br><br>
 		<div class="sopuchClassDiv col-md-6">
 		<div class="radio"><label>
-			<input class="sopuchClass" checked="checked" type="radio" name="sopuch" value="45">
+			<input class="sopuchClass" checked="checked" type="radio" name="sopuch" value="45" data-toggle="radio">
 			SOPÚCH 45°
 		</label></div>
 		<div class="radio"><label>
-			<input class="sopuchClass" type="radio" name="sopuch" value="90">
+			<input class="sopuchClass" type="radio" name="sopuch" value="90" data-toggle="radio">
 			SOPÚCH 90°
 		</label></div>
 		</div>
@@ -120,7 +124,7 @@
 		
 		<div class="komDvereClassDiv col-md-12">	
 		<div class="checkbox"> <label>	
-			<input class="komDvereClass" type="checkbox"/>horne kominove dvere
+			<input class="komDvereClass" type="checkbox" data-toggle="checkbox"/>horne kominove dvere
 		</label></div>
 		
 		
@@ -129,27 +133,35 @@
 		<div class="kanVyustenieClassDiv col-md-12">
 			
 			<div class="checkbox"> <label>
-			<input class="kanVyustenieClass" type="checkbox"/>srieska na konicke vyustenie: 
+			<input class="kanVyustenieClass" type="checkbox" data-toggle="checkbox"/>srieska na konicke vyustenie: 
 			</label></div>
 			
 		</div>
-		<div class="cenaClassDiv col-md-12">
-			cena bez dph: <span class="cenaClass">0</span> €<br>
-			cena s dph: <span class="cenaDPHClass">0</span> € <br>
-		
+		<div class="cenaClassDiv col-md-12"><div class="well">
+			<table>
+			<tr>
+			<td class="popis">cena bez DPH: </td><td class="cena"><span class="cenaClass">0</span> €<br></td>
+			</tr>
+			<tr>
+			<td class="popis">cena s DPH: </td><td class="cena"><span class="cenaDPHClass">0</span> € <br></td>
+			</tr>
+			</table>
+		</div>
 		</div>
 		<div class="col-md-12">
-		<button type="submit" class="vyratajClassDiv btn btn-default col-md-12">Vyrataj</button> 
+		<button type="submit" class="vyratajClassDiv btn btn-primary col-md-12">Vyrataj</button> 
+		
 		</div>
 		
 		<div class="col-md-12">
 		<form>
-			meno: <input type="text" class="meno form-control" /><span class="nameInputValidation" style="display:none">Meno nesmie ostať nevyplnené</span><br>
+			meno: <input type="text" class="meno form-control" /><span class="nameInputValidation" style="display:none"><p class="bg-danger">Meno nesmie ostať nevyplnené</p></span><br>
 			email: <input type="text" class="email form-control" /><br>
-			telefon: <input type="text" class="telefon form-control" /><span class="emailOrPhoneInputValidation" style="display:none">Email alebo telefón musia byť vyplnené správne</span><br>
-			adresa: <input type="text" class="adresa form-control" /><span class="addressInputValidation" style="display:none">Adresa nesmie ostať nevyplnená</span>
-			<span class="priceInputValidation" style="display:none">Musí byť vyrátaná cena</span>
-			<button type="button" class="odosli btn btn-default col-md-12" value="odosli"/>Odošli</button>
+			telefon: <input type="text" class="telefon form-control" /><span class="emailOrPhoneInputValidation" style="display:none"><p class="bg-danger">Email alebo telefón musia byť vyplnené správne</p></span><br>
+			adresa: <input type="text" class="adresa form-control" /><span class="addressInputValidation" style="display:none"><p class="bg-danger">Adresa nesmie ostať nevyplnená</p></span>
+			<span class="priceInputValidation" style="display:none"><p class="bg-danger">Musí byť vyrátaná cena</p></span>
+			<br>
+			<button type="button" class="odosli btn btn-primary col-md-12" value="odosli"/>Odošli dopyt</button>
 		</form>
 		</div>
 		</div>
@@ -167,7 +179,7 @@ include('includes/kominy.php')
 	    
 <footer>
 <div class="container">
-paticka
+Copyright kominy.sk © 2014 All rights reserved.
 </div>
 </footer>
 	    
@@ -175,7 +187,9 @@ paticka
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.0.min.js"><\/script>')</script>
 
         <script src="js/vendor/bootstrap.min.js"></script>
-
+		<!--<script src="js/flatui-checkbox.js"></script>
+		<script src="js/flatui-radio.js"></script>
+		<script src="js/bootstrap-select.js"></script>-->
         <script src="js/main.js"></script>
 
         

@@ -10,6 +10,9 @@ var ecoPlusValues;
 var totalPrice;
 $(document).ready(function(){
 	init();
+	//$(':checkbox').checkbox();
+	//$(':radio').radio();
+	//$("select").selectpicker({style: 'btn-hg btn-primary'});
 	$(".vyratajClassDiv").click(function(){
 		vyratajInterface();
 	});

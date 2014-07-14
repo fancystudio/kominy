@@ -17,9 +17,81 @@ padding-bottom: 22px;
 padding: 15px 0px 0px 0px !important;
 }
 
+.bg-danger {
+background-color: #f2dede;
+padding: 2px 5px;
+margin: 5px 0px;
+font-size: 12px;
+border-radius: 4px;
+}
+
+.baner{
+	margin-bottom: 50px
+}
+
+.baner img{
+	width: 100%;
+	height: auto;
+}
+
+.main-content h2{
+font-size: 26px;
+background: #006fba;
+color: white;
+font-weight: 200;
+padding: 10px 15px;
+}
+
+.panel-heading{
+	cursor: pointer
+}
+
+td.cena {
+font-size: 22px;
+}
+
+td.popis {
+padding: 0 20px 0 10px;
+}
+
+.btn-primary {
+color: #fff;
+background-color: #428bca;
+border-color: #357ebd;
+margin: 10px 0px;
+padding: 10px 0px;
+}
+
+footer{
+	width: 100%;
+	text-align: center;
+	background: #f8f8f8;
+	padding: 10px 0;
+	margin-top: 50px;
+	font-size: 11px
+}
+
+.col-md-12.icons  {
+margin-top: 20px;
+}
+
+.col-md-12.icons img {
+margin-top: 10px;
+}
+
+input.form_name.form-control {
+margin-bottom: 25px;
+}
+
+textarea.form_text.form-control {
+height: 118px;
+}
 
 
-
+.adress {
+margin-bottom: 40px;
+margin-top: 20px;
+}
 
 
 
