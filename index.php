@@ -145,11 +145,7 @@
 		</div>
 		</div>
 		<div class="col-md-12">
-<<<<<<< HEAD
-		<button type="submit" class="vyratajClassDiv btn btn-primary col-md-12 col-xs-12">Vyrataj</button> 
-=======
 		<button type="submit" class="vyratajClassDiv btn btn-primary col-md-12 col-xs-12">Vyrátaj</button> 
->>>>>>> FETCH_HEAD
 		</div>
 		
 		<div class="col-md-12">
