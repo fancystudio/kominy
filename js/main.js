@@ -28,19 +28,28 @@ $(document).ready(function(){
 	$(".adresa").change(function(){
 		isAdresaValid($(".adresa").val());
 	});
+	$(".typOsoby").click(function(){
+		if($(this).val() == "pravnicka"){
+			$(".companyFields").show();
+		}else{
+			$(".companyFields").hide();
+		}
+	});
 	$(".odosli").click(function(){
 		if(!mailSend){
 			menoValid = isMenoValid($(".meno").val());
 			adresaValid = isAdresaValid($(".adresa").val());
 			emailOrPhoneValid = isEmailOrPhoneValid($(".email").val(),$(".telefon").val());
+			companyFiledsValid = isCompanyFieldsValid($(".typOsoby:checked").val(),$(".nazovFirmy").val(),$(".ico").val(),$(".dic").val());
 			if(typ == "eco" || typ == "ecoplus"){
 				priceIsCount = isPriceCount();
 			}else{
 				priceIsCount = true;
 				$(".priceInputValidation").hide();
 			}
-			if(menoValid && adresaValid && emailOrPhoneValid && priceIsCount){
-				sendMail($(".meno").val(),$(".adresa").val(),$(".email").val(),$(".telefon").val(),$(".poziadavky").val());
+			if(menoValid && adresaValid && emailOrPhoneValid && priceIsCount && companyFiledsValid){
+				console.log("voslo");
+				sendMail($(".meno").val(),$(".adresa").val(),$(".email").val(),$(".telefon").val(),$(".poziadavky").val(),$(".typOsoby:checked").val(),$(".nazovFirmy").val(),$(".ico").val(),$(".dic").val(),$(".fakturacnaAdresa").val());
 			}
 		}
 	});
@@ -213,6 +222,29 @@ function isAdresaValid(adresa){
 		return true;
 	}
 }
+function isCompanyFieldsValid(typOsoby, nazovFirmy, ico, dic){
+	if(typOsoby == "pravnicka"){
+		$(".icoInputValidation").hide();
+		$(".dicInputValidation").hide();
+		$(".companyNameInputValidation").hide();
+		isValid = true;
+		if(ico == "" || !isNumber(ico)){
+			$(".icoInputValidation").show();
+			isValid = false;
+		}
+		if(dic == "" || !isNumber(dic)){
+			$(".dicInputValidation").show();
+			isValid = false;
+		}
+		if(nazovFirmy == ""){
+			$(".companyNameInputValidation").show();
+			isValid = false;
+		}
+		return isValid;
+	}else{
+		return true;
+	}
+}
 function isPriceCount(){
 	if(totalPrice != 0){
 		$(".priceInputValidation").hide();
@@ -222,7 +254,7 @@ function isPriceCount(){
 		return false;
 	}
 }
-function sendMail(meno, adresa, email, telefon, poziadavky){
+function sendMail(meno, adresa, email, telefon, poziadavky, typOsoby, nazovFirmy, ico, dic, fakturacnaAdresa){
 	$.ajax({
 		type: "POST",
 		url: "sendMail.php",
@@ -231,6 +263,11 @@ function sendMail(meno, adresa, email, telefon, poziadavky){
 			"adresa" : adresa,
 			"email" : email,
 			"telefon" : telefon,
+			"typOsoby" : typOsoby,
+			"nazovFirmy" : nazovFirmy,
+			"ico" : ico,
+			"dic" : dic,
+			"fakturacnaAdresa" : fakturacnaAdresa,
 			"sopuch" : sopuch,
 			"vetSachta" : vetSachta,
 			"rozmer" : rozmer,
