@@ -43,7 +43,7 @@
   
 </div><!-- /.container -->
 <div class="container baner">
-<div class="col-md-12"><img src="img/baner.jpg"/></div>
+<div class="col-md-12"><img src="img/baner-2.jpg" width="1110" height="264" alt="Komíny LEIER sú certifikované komínové zostavy, ktoré splnili náročné európske testy tesnosti"/></div>
 </div>
 
    
@@ -136,10 +136,13 @@
 		<div class="cenaClassDiv col-md-12"><div class="well">
 			<table>
 			<tr>
-			<td class="popis">cena bez DPH: </td><td class="cena"><span class="cenaClass">0</span> €<br></td>
+			<td class="popis">Cena bez DPH: </td><td class="cena"><span class="cenaClass">0</span> €<br></td>
 			</tr>
 			<tr>
-			<td class="popis">cena s DPH: </td><td class="cena"><span class="cenaDPHClass">0</span> € <br></td>
+			<td class="popis">Cena s DPH: </td><td class="cena"><span class="cenaDPHClass">0</span> € <br></td>
+			</tr>
+			<tr>
+			<td class="popis">Doprava: </td><td class="cena"><span class="doprava">ZADARMO!</span>  <br></td>
 			</tr>
 			</table>
 		</div>
@@ -180,7 +183,7 @@ include('includes/kominy.php')
 	    
 <footer>
 <div class="container">
-Copyright kominy.sk © 2014 All rights reserved.
+Copyright tvojkomin.sk © 2014 All rights reserved.
 </div>
 </footer>
 	    

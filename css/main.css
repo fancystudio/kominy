@@ -109,6 +109,18 @@ display: block;
 margin-top: 50px;
 }
 
+
+span.doprava{
+	font-weight: bold;
+	color: #e11c1c;
+}
+
+.vyratajClassDiv {
+position: relative;
+z-index: 99999;
+}
+
+
 /* Landscape phones and portrait tablets */
 @media (max-width: 767px) {
 .leier {

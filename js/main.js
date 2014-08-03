@@ -147,12 +147,14 @@ function removePrice(){
 	$(".cenaClass").html(0);
 	$(".cenaDPHClass").html(0);
 	$(".alert-success").hide();
+	$(".doprava").html('');
 	mailSend = false;
 }
 function setPrice(totalPrice){
 	totalPrice = totalPrice;
 	$(".cenaClass").html(Math.round(totalPrice * 100)/100);
 	$(".cenaDPHClass").html(Math.round((totalPrice * 1.2) * 100)/100);
+	$(".doprava").html('ZADARMO!');
 }
 function loadValues(){
 	sopuch = $('input[name=sopuch]:checked').val();

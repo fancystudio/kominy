@@ -44,7 +44,7 @@
   
 </div><!-- /.container -->
 <div class="container baner">
-<div class="col-md-12"><img src="img/baner.jpg"/></div>
+<div class="col-md-12"><img src="img/baner-2.jpg" width="1110" height="264" alt="Komíny LEIER sú certifikované komínové zostavy, ktoré splnili náročné európske testy tesnosti"/></div>
 </div>
 
    
@@ -133,7 +133,7 @@ function validateEmail(email) {
 	    
 <footer>
 <div class="container">
-Copyright kominy.sk © 2014 All rights reserved.
+Copyright tvojkomin.sk © 2014 All rights reserved.
 </div>
 </footer>
 	    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
