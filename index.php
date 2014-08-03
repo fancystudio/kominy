@@ -16,16 +16,14 @@
     </head>
     <body>
     
-    
-    <div class="navbar navbar-default navbar-static-top">
-  <div class="container">
+<div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="http://www.conparius.sk/" target="_blank"><img src="img/logo.png" width="199" height="34"/></a>
+      <a class="navbar-brand" href="http://www.conparius.sk/" target="_blank"><img src="img/logo.png" width="198" height="37"/></a>
     </div>
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
@@ -43,7 +41,7 @@
   
 </div><!-- /.container -->
 <div class="container baner">
-<div class="col-md-12"><img src="img/baner.jpg"/></div>
+<div class="col-md-12"><img src="img/baner-2.jpg" width="1110" height="264" alt="Komíny LEIER sú certifikované komínové zostavy, ktoré splnili náročné európske testy tesnosti"/></div>
 </div>
 
    
@@ -136,10 +134,13 @@
 		<div class="cenaClassDiv col-md-12"><div class="well">
 			<table>
 			<tr>
-			<td class="popis">cena bez DPH: </td><td class="cena"><span class="cenaClass">0</span> €<br></td>
+			<td class="popis">Cena bez DPH: </td><td class="cena"><span class="cenaClass">0</span> €<br></td>
 			</tr>
 			<tr>
-			<td class="popis">cena s DPH: </td><td class="cena"><span class="cenaDPHClass">0</span> € <br></td>
+			<td class="popis">Cena s DPH: </td><td class="cena"><span class="cenaDPHClass">0</span> € <br></td>
+			</tr>
+			<tr>
+			<td class="popis">Doprava: </td><td class="cena"><span class="doprava">ZADARMO!</span>  <br></td>
 			</tr>
 			</table>
 		</div>
@@ -155,6 +156,14 @@
 			email: **<input type="text" class="email form-control" /><br>
 			telefón: **<input type="text" class="telefon form-control" /><span class="emailOrPhoneInputValidation" style="display:none"><p class="bg-danger">Email alebo telefón musia byť vyplnené správne</p></span><br>
 			adresa: *<input type="text" class="adresa form-control" /><span class="addressInputValidation" style="display:none"><p class="bg-danger">Adresa nesmie ostať nevyplnená</p></span>
+			fyzická osoba: <input type="radio" name="osoba" class="typOsoby" value="fyzicka" checked="checked" />
+			právnická osoba: <input type="radio" name="osoba" class="typOsoby" value="pravnicka" />
+			<div class="companyFields" style="display:none">
+				názov firmy: *<input type="text" class="nazovFirmy form-control" /><span class="companyNameInputValidation" style="display:none"><p class="bg-danger">Názov firmy musí byť zadaný</p></span>
+				IČO: *<input type="text" class="ico form-control" /><span class="icoInputValidation" style="display:none"><p class="bg-danger">IČO musí byť vyplnené správne</p></span>
+				DIČ: *<input type="text" class="dic form-control" /><span class="dicInputValidation" style="display:none"><p class="bg-danger">DIČ musí byť vyplnené správne</p></span>
+				fakturačná adresa: <input type="text" class="fakturacnaAdresa form-control" />
+			</div>
 			<span class="priceInputValidation" style="display:none"><p class="bg-danger">Musí byť vyrátaná cena</p></span>
 			<br>
 			<span class="info-req">
@@ -180,7 +189,7 @@ include('includes/kominy.php')
 	    
 <footer>
 <div class="container">
-Copyright kominy.sk © 2014 All rights reserved.
+Copyright tvojkomin.sk © 2014 All rights reserved.
 </div>
 </footer>
 	    
@@ -192,6 +201,16 @@ Copyright kominy.sk © 2014 All rights reserved.
 		<script src="js/flatui-radio.js"></script>
 		<script src="js/bootstrap-select.js"></script>-->
         <script src="js/main.js"></script>
+        <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-53207178-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
 
         
         
