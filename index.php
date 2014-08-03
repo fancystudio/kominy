@@ -135,19 +135,13 @@
 			<table>
 			<tr>
 			<td class="popis">Cena bez DPH: </td><td class="cena"><span class="cenaClass">0</span> €<br></td>
-<<<<<<< HEAD
+
 			</tr>
 			<tr>
 			<td class="popis">Cena s DPH: </td><td class="cena"><span class="cenaDPHClass">0</span> € <br></td>
 			</tr>
 			<tr>
-=======
-			</tr>
-			<tr>
-			<td class="popis">Cena s DPH: </td><td class="cena"><span class="cenaDPHClass">0</span> € <br></td>
-			</tr>
-			<tr>
->>>>>>> FETCH_HEAD
+
 			<td class="popis">Doprava: </td><td class="cena"><span class="doprava">ZADARMO!</span>  <br></td>
 			</tr>
 			</table>
@@ -164,12 +158,27 @@
 			email: **<input type="text" class="email form-control" /><br>
 			telefón: **<input type="text" class="telefon form-control" /><span class="emailOrPhoneInputValidation" style="display:none"><p class="bg-danger">Email alebo telefón musia byť vyplnené správne</p></span><br>
 			adresa: *<input type="text" class="adresa form-control" /><span class="addressInputValidation" style="display:none"><p class="bg-danger">Adresa nesmie ostať nevyplnená</p></span>
-			fyzická osoba: <input type="radio" name="osoba" class="typOsoby" value="fyzicka" checked="checked" />
-			právnická osoba: <input type="radio" name="osoba" class="typOsoby" value="pravnicka" />
+			
+			<br>
+			<h5>Právna forma:</h5>
+			
+			
+			<div class="radio"><label>
+		 	<input class="typOsoby" checked="checked" type="radio" name="osoba" value="fyzicka" data-toggle="radio"  checked="checked">
+		 	fyzická osoba
+			</label></div>
+			
+			<div class="radio"><label>
+		 	<input class="typOsoby" type="radio" name="osoba" value="pravnicka" data-toggle="radio">
+		 	právnická osoba
+			</label></div><br>
+			
+			
+		
 			<div class="companyFields" style="display:none">
-				názov firmy: *<input type="text" class="nazovFirmy form-control" /><span class="companyNameInputValidation" style="display:none"><p class="bg-danger">Názov firmy musí byť zadaný</p></span>
-				IČO: *<input type="text" class="ico form-control" /><span class="icoInputValidation" style="display:none"><p class="bg-danger">IČO musí byť vyplnené správne</p></span>
-				DIČ: *<input type="text" class="dic form-control" /><span class="dicInputValidation" style="display:none"><p class="bg-danger">DIČ musí byť vyplnené správne</p></span>
+				názov firmy: *<input type="text" class="nazovFirmy form-control" /><span class="companyNameInputValidation" style="display:none"><p class="bg-danger">Názov firmy musí byť zadaný</p></span><br>
+				IČO: *<input type="text" class="ico form-control" /><span class="icoInputValidation" style="display:none"><p class="bg-danger">IČO musí byť vyplnené správne</p></span><br>
+				DIČ: *<input type="text" class="dic form-control" /><span class="dicInputValidation" style="display:none"><p class="bg-danger">DIČ musí byť vyplnené správne</p></span><br>
 				fakturačná adresa: <input type="text" class="fakturacnaAdresa form-control" />
 			</div>
 			<span class="priceInputValidation" style="display:none"><p class="bg-danger">Musí byť vyrátaná cena</p></span>
